@@ -198,7 +198,7 @@ int save_picture(uint8_t* data)
     {
       // Error.
     }
-    fres = f_write(&fileh, data, IMAGE_SIZE * 4, &tmp);
+    fres = f_write(&fileh, data, IMAGE_SIZE, &tmp);
     if(FR_OK != fres)
     {
       // Error.
