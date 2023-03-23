@@ -66,6 +66,7 @@ SPI_HandleTypeDef hspi1;
 TIM_HandleTypeDef htim2;
 
 /* USER CODE BEGIN PV */
+volatile int capturing = 0;
 volatile int clock_phase;
 volatile uint8_t image[IMAGE_SIZE];
 volatile uint16_t image_cursor;
@@ -151,7 +152,7 @@ int save_picture(uint8_t* data)
   FILINFO fno;
   FRESULT fres;
   uint8_t header[15] = { 0x50, 0x35, 0x0A, 0x31, 0x32, 0x38, 0x20, 0x31, 0x32, 0x36, 0x0A, 0x32, 0x35, 0x35, 0x0A };
-  char filename[9] = { 0 };
+  char filename[13] = { 0 };
   int available = 0;
   unsigned int id = 1;
 
@@ -161,9 +162,18 @@ int save_picture(uint8_t* data)
     goto exit;
   }
 
+  fres = f_mkdir("RAW");
+  if (FR_OK != fres)
+  {
+    if (FR_EXIST != fres)
+    {
+      goto exit;
+    }
+  }
+
   while (0 == available)
   {
-    snprintf(filename, 9, "%04u.pgm", id);
+    snprintf(filename, 13, "RAW/%04u.pgm", id);
     fres = f_stat(filename, &fno);
     switch (fres)
     {
@@ -188,7 +198,7 @@ int save_picture(uint8_t* data)
     {
       // Error.
     }
-    fres = f_write(&fileh, data, IMAGE_SIZE, &tmp);
+    fres = f_write(&fileh, data, IMAGE_SIZE * 4, &tmp);
     if(FR_OK != fres)
     {
       // Error.
@@ -208,7 +218,6 @@ void take_picture(void)
   LOAD_low();
   SIN_low();
 
-  start_xck();
   wait_xck_cycle();
   wait_xck_cycle();
 
@@ -216,14 +225,14 @@ void take_picture(void)
   wait_xck_cycle();
   wait_xck_cycle();
 
-  load_register(0x00, 0x00);
-  load_register(0x01, 0xD6);
-  load_register(0x02, 0x06);
+  load_register(0x00, 0x9f);
+  load_register(0x01, 0xe8);
+  load_register(0x02, 0x01);
   load_register(0x03, 0x00);
   load_register(0x04, 0x01);
   load_register(0x05, 0x00);
   load_register(0x06, 0x01);
-  load_register(0x07, 0x07);
+  load_register(0x07, 0x03);
 
   wait_xck_cycle();
   capture();
@@ -292,6 +301,7 @@ int main(void)
   MX_ADC1_Init();
   MX_TIM2_Init();
   /* USER CODE BEGIN 2 */
+  start_xck();
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -373,7 +383,7 @@ static void MX_ADC1_Init(void)
   */
   hadc1.Instance = ADC1;
   hadc1.Init.ClockPrescaler = ADC_CLOCK_SYNC_PCLK_DIV2;
-  hadc1.Init.Resolution = ADC_RESOLUTION_12B;
+  hadc1.Init.Resolution = ADC_RESOLUTION_8B;
   hadc1.Init.ScanConvMode = DISABLE;
   hadc1.Init.ContinuousConvMode = DISABLE;
   hadc1.Init.DiscontinuousConvMode = DISABLE;
@@ -591,6 +601,10 @@ static void MX_GPIO_Init(void)
 /* USER CODE BEGIN 4 */
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 {
+  if (1 == capturing)
+  {
+    return;
+  }
   switch (GPIO_Pin)
   {
     case READ_Pin:
@@ -600,18 +614,20 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 
         while (image_cursor < IMAGE_SIZE)
         {
+          capturing = 1;
           wait_xck_cycle();
           HAL_ADC_Start(&hadc1);
           HAL_ADC_PollForConversion(&hadc1, 0);
-          /* I had better results with the 12-bit ADC. */
-          image[image_cursor++] = hadc1.Instance->DR >> 4;
+          image[image_cursor++] = hadc1.Instance->DR;
+          capturing = 0;
         }
       }
       else
       {
         // Picture taken.
+        image_cursor = 0;
+        wait_xck_cycle();
         reset();
-        stop_xck();
         save_picture((uint8_t*)image);
         LED_off();
       }

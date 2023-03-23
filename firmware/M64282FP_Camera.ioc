@@ -1,11 +1,12 @@
 #MicroXplorer Configuration settings - do not modify
 ADC1.Channel-0\#ChannelRegularConversion=ADC_CHANNEL_3
-ADC1.IPParameters=master,NbrOfConversionFlag,Channel-0\#ChannelRegularConversion,Resolution
+ADC1.ClockPrescaler=ADC_CLOCK_SYNC_PCLK_DIV2
+ADC1.IPParameters=master,NbrOfConversionFlag,Channel-0\#ChannelRegularConversion,Resolution,ClockPrescaler
 ADC1.NbrOfConversionFlag=1
-ADC1.Resolution=ADC_RESOLUTION_12B
+ADC1.Resolution=ADC_RESOLUTION_8B
 ADC1.master=1
 CAD.formats=[]
-CAD.pinconfig=Project naming
+CAD.pinconfig=Dual
 CAD.provider=
 File.Version=6
 GPIO.groupedBy=Group By Peripherals
