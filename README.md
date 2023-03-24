@@ -13,5 +13,7 @@ memory card is used as a film replacement.
 
 ## Status
 
+[![Selfie](media/selfie.jpg)](media/selfie.jpg?raw=true "Selfie")
+
 The firmware is rudimentary but fully functional.  The next step is to
 install the circuit in a Holga camera.
