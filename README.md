@@ -25,8 +25,8 @@ process the image simultaneously as human retinas can.  The sensor is
 essentially known for its use in the GameBoy Camera from 1998.
 
 ## Best of both worlds
-T
-deehis project is an attempt to combine the best of both worlds by
+
+This project is an attempt to combine the best of both worlds by
 mounting the sensor together with an STM32 microcontroller in a Holga
 120S as a substitute for the rather expensive 120 roll film.
 
