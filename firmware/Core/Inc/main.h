@@ -64,20 +64,22 @@ void Error_Handler(void);
 #define RELEASE_Pin GPIO_PIN_0
 #define RELEASE_GPIO_Port GPIOA
 #define RELEASE_EXTI_IRQn EXTI0_IRQn
+#define XCK_Pin GPIO_PIN_1
+#define XCK_GPIO_Port GPIOA
+#define READ_Pin GPIO_PIN_2
+#define READ_GPIO_Port GPIOA
+#define READ_EXTI_IRQn EXTI2_IRQn
+#define VOUT_Pin GPIO_PIN_3
+#define VOUT_GPIO_Port GPIOA
 #define SD_CS_Pin GPIO_PIN_4
 #define SD_CS_GPIO_Port GPIOA
-#define READ_Pin GPIO_PIN_15
-#define READ_GPIO_Port GPIOA
-#define READ_EXTI_IRQn EXTI15_10_IRQn
-#define XCK_Pin GPIO_PIN_3
-#define XCK_GPIO_Port GPIOB
-#define RESET_Pin GPIO_PIN_4
+#define RESET_Pin GPIO_PIN_0
 #define RESET_GPIO_Port GPIOB
-#define LOAD_Pin GPIO_PIN_5
+#define LOAD_Pin GPIO_PIN_1
 #define LOAD_GPIO_Port GPIOB
-#define SIN_Pin GPIO_PIN_6
+#define SIN_Pin GPIO_PIN_2
 #define SIN_GPIO_Port GPIOB
-#define START_Pin GPIO_PIN_7
+#define START_Pin GPIO_PIN_10
 #define START_GPIO_Port GPIOB
 
 /* USER CODE BEGIN Private defines */
