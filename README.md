@@ -78,7 +78,7 @@ Click on the images to view them in full resolution.
 [![](media/build-2-tn.jpg)](media/build-2.jpg?raw=true "Build process 2")
 [![](media/optics-1-tn.jpg)](media/optics-1.jpg?raw=true "Optics adaption 1")
 [![](media/optics-2-tn.jpg)](media/optics-2.jpg?raw=true "Optics adaption 2")
-[![](media/installation-tn.jpg)](media/.jpg?raw=true "Installation process")
+[![](media/installation-tn.jpg)](media/installation.jpg?raw=true "Installation process")
 [![](media/front-view-tn.jpg)](media/front-view.jpg?raw=true "Front view")
 
 ### Shots
