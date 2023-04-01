@@ -302,6 +302,7 @@ int main(void)
   MX_TIM2_Init();
   /* USER CODE BEGIN 2 */
   start_xck();
+  take_picture();
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -627,6 +628,9 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
         reset();
         save_picture((uint8_t*)image);
         LED_off();
+        HAL_SuspendTick();
+        HAL_PWR_EnterSTOPMode(PWR_LOWPOWERREGULATOR_ON, PWR_STOPENTRY_WFI);
+        HAL_ResumeTick();
       }
       break;
     case RELEASE_Pin:
