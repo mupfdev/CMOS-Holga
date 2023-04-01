@@ -72,7 +72,7 @@ Click on the images to view them in full resolution.
 
 ### Development stage
 
-[![](media/prototype-tn.jpg)](media/.jpg?raw=true "Prototype")
+[![](media/prototype-tn.jpg)](media/prototype.jpg?raw=true "Prototype")
 [![](media/stm32f4-step-up-converter-tn.jpg)](media/stm32f4-step-up-converter.jpg?raw=true "STM32F4 with step-up converter")
 [![](media/build-1-tn.jpg)](media/build-1.jpg?raw=true "Build process 1")
 [![](media/build-2-tn.jpg)](media/build-2.jpg?raw=true "Build process 2")
