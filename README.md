@@ -68,6 +68,8 @@ mind.
 
 ## Gallery
 
+Click on the images to view them in full resolution.
+
 ### Development stage
 
 [![](media/prototype-tn.jpg)](media/.jpg?raw=true "Prototype")
