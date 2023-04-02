@@ -39,7 +39,7 @@ As if using a Holga wasn't obscure enough, I decided to bring Nintendo
 into the mix.  I dug out my old GameBoy Camera and removed its image
 sensor, the Mitsubishi M64282FP.
 
-[![](media/M64282FP.jpg)](media/M64282FP.jpg.jpgprototype.jpg?raw=true "M64282FP by Nestandart (CC BY-SA 1.0)")
+[![](media/M64282FP-tn.jpg)](media/M64282FP.jpg?raw=true "M64282FP by Nestandart (CC BY-SA 1.0)")
 
 The [Mitsubishi M64282FP](docs/Mitsubishi_M64282FP.pdf) is a 128×128
 pixel CMOS image sensor with built-in image processing and analogue
