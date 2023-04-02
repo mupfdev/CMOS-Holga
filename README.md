@@ -50,6 +50,11 @@ I had some in stock and partly because I am familiar with the product
 family.  I quickly got some useful results and was motivated to finish
 what I'd started.
 
+Since the image sensor needs 5V input voltage, I helped with a step-up
+converter.  The camera is powered by a LiPo battery and can be charged
+via USB using a TP4056 charging circuit.  The logic levels of the STM32
+are sufficient and do not need any level conversion.
+
 ### Conclusion
 
 In the end there was not much left of the Holga. The large lens was no use
