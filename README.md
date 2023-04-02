@@ -2,7 +2,7 @@
 
 Some time ago, an old friend reminded me of a project I had completely
 forgotten about, in which I made an analogue 35mm camera out of an empty
-stove matchbox.  The [resulting photos](media/matchbox-cam-ertesx.jpg)
+stove matchbox.  The [resulting photos](media/matchbox-cam-ertesx.jpg?raw=true)
 were nothing to write home about, but the fact that it worked at all
 felt good, and the mere mention of it by a friend more than ten years
 later proves that it left a lasting impression.
