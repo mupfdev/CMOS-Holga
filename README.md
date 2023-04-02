@@ -35,36 +35,36 @@ competitions in art and news photography.
 
 ### Mix and match!
 
-As if it wasn't obscure enough to use a Holga, I decided to bring
-Nintendo into the mix.  I dug out my old GameBoy Camera and removed it's
-image sensor, the imfamous Mitsubishi M64282FP.
+As if using a Holga wasn't obscure enough, I decided to bring Nintendo
+into the mix.  I dug out my old GameBoy Camera and removed its image
+sensor, the Mitsubishi M64282FP.
 
 The M64282FP is a 128×128 pixel CMOS image sensor with built-in image
-processing and analog image output tuning functions.  It can detect an
-image and process the image simultaneously as human retinas can.
+processing and analogue image output adjustment functions.  It can
+capture an image and process it at the same time, just like the human
+retina.
 
-I used an STM32F401 microcontroller board to read out the image data and
-save the final pictures to an SD card via SPI. This is partly because I
-still had some in stock, and partly because I am familiar with the
-product family. I quickly got some viable results and was motivated to
-finish what I've started.
+I used an STM32F401 microcontroller board to read the image data and
+store the final images on an SD card via SPI.  This was partly because
+I had some in stock and partly because I am familiar with the product
+family.  I quickly got some useful results and was motivated to finish
+what I'd started.
 
 ### Conclusion
 
-In the end, there was not much left of the Holga.  The large lens was no
-use for the tiny image sensor, so I decided to adapt the optics from the
-GameBoy camera.  It was still a good choice.  The Holga is very cheap and
-commonly available and the housing is very light and has enough space for
-the electronics.
+In the end there was not much left of the Holga. The large lens was no use
+for the tiny image sensor, so I decided to adapt the optics from the
+GameBoy camera.  It was still a good choice. The Holga is very cheap and
+widely available, and the body is very light with plenty of room for the
+electronics.
 
-I could certainly improve the firmware to output JPEGs directly instead
-of Portable Grey Map (PGM) files, for example, but overall I am very
-happy with the result.  The CMOS Holga is portable, super lightweight
-and creates quirky black and white images with a charm of their own.
-The camera has no display, no automatic exposure control and no
-adjustable focus – it just offers the raw basics of a simple
-point-and-shoot camera.  No extras, no gimmicks – just what I had in
-mind.
+I could certainly improve the firmware to output JPEGs directly instead of
+Portable Grey Map (PGM) files, but overall I am very happy with the result.
+The CMOS Holga is portable, super lightweight and produces quirky black and
+white images with a charm of their own.  The camera has no display, no
+automatic exposure control and no adjustable focus – it just offers the raw
+basics of a simple point-and-shoot camera.  No extras, no gimmicks – just
+what I had in mind.
 
 ## Gallery
 
