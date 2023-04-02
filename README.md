@@ -39,10 +39,10 @@ As if using a Holga wasn't obscure enough, I decided to bring Nintendo
 into the mix.  I dug out my old GameBoy Camera and removed its image
 sensor, the Mitsubishi M64282FP.
 
-The [Mitsubishi M64282FP](Mitsubishi_M64282FP.pdf) is a 128×128 pixel
-CMOS image sensor with built-in image processing and analogue image
-output adjustment functions.  It can capture an image and process it at
-the same time, just like the human retina.
+The [Mitsubishi M64282FP](docs/Mitsubishi_M64282FP.pdf) is a 128×128
+pixel CMOS image sensor with built-in image processing and analogue
+image output adjustment functions.  It can capture an image and process
+it at the same time, just like the human retina.
 
 I used an STM32F401 microcontroller board to read the image data and
 store the final images on an SD card via SPI.  This was partly because I
