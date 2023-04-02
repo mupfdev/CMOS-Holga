@@ -35,27 +35,27 @@ competitions in art and news photography.
 
 ### Mix and match!
 
-As if it wasn't obscure enough to use a Holga, I finally decided to
-bring Nintendo into the mix.  I dug out my old GameBoy Camera and
-removed it's image sensor, the imfamous Mitsubishi M64282FP.  The
-M64282FP is a 128×128 pixel CMOS image sensor with built-in image
+As if it wasn't obscure enough to use a Holga, I decided to bring
+Nintendo into the mix.  I dug out my old GameBoy Camera and removed it's
+image sensor, the imfamous Mitsubishi M64282FP.
+
+The M64282FP is a 128×128 pixel CMOS image sensor with built-in image
 processing and analog image output tuning functions.  It can detect an
 image and process the image simultaneously as human retinas can.
 
-I used an STM32F401 MCU to read out the image data and save the final
-pictures to an SD card via SPI. This is partly because I still have some
-in stock, and partly because I am familiar with the product family.
-
-In any case, I quickly got some viable results and was motivated to
-finish the project.
+I used an STM32F401 microcontroller board to read out the image data and
+save the final pictures to an SD card via SPI. This is partly because I
+still had some in stock, and partly because I am familiar with the
+product family. I quickly got some viable results and was motivated to
+finish what I've started.
 
 ### Conclusion
 
 In the end, there was not much left of the Holga.  The large lens was no
 use for the tiny image sensor, so I decided to adapt the optics from the
-GameBoy camera.  It was still a good choice.  The Holga is very cheap to
-get and the housing is very light and has enough space for the
-electronics.
+GameBoy camera.  It was still a good choice.  The Holga is very cheap and
+commonly available and the housing is very light and has enough space for
+the electronics.
 
 I could certainly improve the firmware to output JPEGs directly instead
 of Portable Grey Map (PGM) files, for example, but overall I am very
