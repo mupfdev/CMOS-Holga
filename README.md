@@ -45,8 +45,8 @@ capture an image and process it at the same time, just like the human
 retina.
 
 I used an STM32F401 microcontroller board to read the image data and
-store the final images on an SD card via SPI.  This was partly because
-I had some in stock and partly because I am familiar with the product
+store the final images on an SD card via SPI.  This was partly because I
+had some in stock and partly because I am familiar with the product
 family.  I quickly got some useful results and was motivated to finish
 what I'd started.
 
@@ -57,19 +57,19 @@ are sufficient and do not need any level conversion.
 
 ### Conclusion
 
-In the end there was not much left of the Holga. The large lens was no use
-for the tiny image sensor, so I decided to adapt the optics from the
-GameBoy Camera.  It was still a good choice.  The Holga is very cheap and
-widely available, and the body is very light with plenty of room for the
-electronics.
+In the end there was not much left of the Holga. The large lens was no
+use for the tiny image sensor, so I decided to adapt the optics from the
+GameBoy Camera.  It was still a good choice.  The Holga is very cheap
+and widely available, and the body is very light with plenty of room for
+the electronics.
 
-I could certainly improve the firmware to output JPEGs directly instead of
-Portable Grey Map (PGM) files, but overall I am very happy with the result.
-The CMOS Holga is portable, super lightweight and produces quirky black and
-white images with a charm of their own.  The camera has no display, no
-automatic exposure control and no adjustable focus – it just offers the raw
-basics of a simple point-and-shoot camera.  No extras, no gimmicks – just
-what I had in mind.
+I could certainly improve the firmware to output JPEGs directly instead
+of Portable Grey Map (PGM) files, but overall I am very happy with the
+result.  The CMOS Holga is portable, super lightweight and produces
+quirky black and white images with a charm of their own.  The camera has
+no display, no automatic exposure control and no adjustable focus – it
+just offers the raw basics of a simple point-and-shoot camera.  No
+extras, no gimmicks – just what I had in mind.
 
 ## Gallery
 
