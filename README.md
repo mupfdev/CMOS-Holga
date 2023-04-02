@@ -2,10 +2,10 @@
 
 Some time ago, an old friend reminded me of a project I had completely
 forgotten about, in which I made an analogue 35mm camera out of an empty
-stove matchbox.  The resulting photos were nothing to write home about,
-but the fact that it worked at all felt good, and the mere mention of it
-by a friend more than ten years later proves that it left a lasting
-impression.
+stove matchbox.  The [resulting photos](media/matchbox-cam-ertesx.jpg)
+were nothing to write home about, but the fact that it worked at all
+felt good, and the mere mention of it by a friend more than ten years
+later proves that it left a lasting impression.
 
 A lot has happened since then, my life has changed, my knowledge and
 skills have developed.  Time for a follow-up project!
@@ -39,10 +39,10 @@ As if using a Holga wasn't obscure enough, I decided to bring Nintendo
 into the mix.  I dug out my old GameBoy Camera and removed its image
 sensor, the Mitsubishi M64282FP.
 
-The M64282FP is a 128×128 pixel CMOS image sensor with built-in image
-processing and analogue image output adjustment functions.  It can
-capture an image and process it at the same time, just like the human
-retina.
+The [Mitsubishi M64282FP](Mitsubishi_M64282FP.pdf) is a 128×128 pixel
+CMOS image sensor with built-in image processing and analogue image
+output adjustment functions.  It can capture an image and process it at
+the same time, just like the human retina.
 
 I used an STM32F401 microcontroller board to read the image data and
 store the final images on an SD card via SPI.  This was partly because I
