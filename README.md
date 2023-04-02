@@ -59,7 +59,7 @@ are sufficient and do not need any level conversion.
 
 In the end there was not much left of the Holga. The large lens was no use
 for the tiny image sensor, so I decided to adapt the optics from the
-GameBoy camera.  It was still a good choice. The Holga is very cheap and
+GameBoy Camera.  It was still a good choice.  The Holga is very cheap and
 widely available, and the body is very light with plenty of room for the
 electronics.
 
