@@ -36,7 +36,21 @@ extern "C" {
 
 /* Exported types ------------------------------------------------------------*/
 /* USER CODE BEGIN ET */
+typedef enum total_gain
+{
+  TG_14_0 = 0,
+  TG_15_5,
+  TG_17_0,
+  TG_18_5,
+  TG_20_0,
+  TG_21_5,
+  TG_23_0,
+  TG_24_5,
+  TG_26_0,
+  TG_29_0,
+  TG_32_0
 
+} total_gain_t;
 /* USER CODE END ET */
 
 /* Exported constants --------------------------------------------------------*/

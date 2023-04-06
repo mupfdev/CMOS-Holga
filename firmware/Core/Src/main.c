@@ -36,6 +36,8 @@
 #define IMAGE_WIDTH 128
 #define IMAGE_HEIGHT 126
 #define IMAGE_SIZE 16128
+/* 128 x 122 = 15616 */
+#define IMAGE_DATA 15616
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -70,6 +72,7 @@ volatile int capturing = 0;
 volatile int clock_phase;
 volatile uint8_t image[IMAGE_SIZE];
 volatile uint16_t image_cursor;
+volatile total_gain_t gain_config;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -81,10 +84,11 @@ static void MX_TIM2_Init(void);
 /* USER CODE BEGIN PFP */
 void capture(void);
 void delay_us(uint32_t us);
+uint8_t get_average_brightness(void);
 void load_register(uint8_t addr, uint8_t data);
 void reset(void);
 int save_picture(uint8_t* data);
-void take_picture(void);
+void take_picture(total_gain_t gain);
 void start_xck(void);
 void stop_xck(void);
 void wait_xck_fall(void);
@@ -107,6 +111,20 @@ void delay_us(uint32_t us)
 {
   volatile uint32_t counter = 7*us;
   while(counter--);
+}
+
+uint8_t get_average_brightness(void)
+{
+  uint8_t average = 0;
+  uint32_t sum = 0;
+
+  for (int i = 0; i < IMAGE_DATA; i += 1)
+  {
+    sum += image[i];
+  }
+  average = sum / IMAGE_DATA;
+
+  return average;
 }
 
 void load_register(uint8_t addr, uint8_t data)
@@ -211,8 +229,10 @@ exit:
   return fres;
 }
 
-void take_picture(void)
+void take_picture(total_gain_t gain)
 {
+  uint8_t reg_1_value = 0xe0;
+
   RESET_high();
   START_low();
   LOAD_low();
@@ -226,7 +246,10 @@ void take_picture(void)
   wait_xck_cycle();
 
   load_register(0x00, 0x9f);
-  load_register(0x01, 0xe8);
+
+  reg_1_value |= gain;
+
+  load_register(0x01, reg_1_value);
   load_register(0x02, 0x01);
   load_register(0x03, 0x00);
   load_register(0x04, 0x01);
@@ -302,7 +325,8 @@ int main(void)
   MX_TIM2_Init();
   /* USER CODE BEGIN 2 */
   start_xck();
-  take_picture();
+  gain_config = TG_14_0;
+  take_picture(gain_config);
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -622,19 +646,32 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
       }
       else
       {
+        uint8_t average_brightness = get_average_brightness();
+
         // Picture taken.
         image_cursor = 0;
         wait_xck_cycle();
         reset();
-        save_picture((uint8_t*)image);
-        LED_off();
-        HAL_SuspendTick();
-        HAL_PWR_EnterSTOPMode(PWR_LOWPOWERREGULATOR_ON, PWR_STOPENTRY_WFI);
-        HAL_ResumeTick();
+
+        if (average_brightness <= 0x7f && gain_config <= TG_32_0)
+        {
+          gain_config += 1;
+          take_picture(gain_config);
+        }
+        else
+        {
+          gain_config = TG_14_0;
+          save_picture((uint8_t*)image);
+          LED_off();
+          HAL_SuspendTick();
+          HAL_PWR_EnterSTOPMode(PWR_LOWPOWERREGULATOR_ON, PWR_STOPENTRY_WFI);
+          HAL_ResumeTick();
+        }
       }
       break;
     case RELEASE_Pin:
-      take_picture();
+      gain_config = TG_14_0;
+      take_picture(gain_config);
       break;
     default:
       break;
