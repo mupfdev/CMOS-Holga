@@ -48,7 +48,8 @@ typedef enum total_gain
   TG_24_5,
   TG_26_0,
   TG_29_0,
-  TG_32_0
+  TG_32_0,
+  TG_MAX
 
 } total_gain_t;
 /* USER CODE END ET */

@@ -653,7 +653,7 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
         wait_xck_cycle();
         reset();
 
-        if (average_brightness <= 0x7f && gain_config <= TG_32_0)
+        if (average_brightness <= 0x7f && gain_config < TG_MAX)
         {
           gain_config += 1;
           take_picture(gain_config);
